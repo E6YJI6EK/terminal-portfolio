@@ -1,0 +1,11 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.item:hover {
+  transition: 0.1s;
+  background-color: var(--primary);
+  color: var(--background-color);
+}

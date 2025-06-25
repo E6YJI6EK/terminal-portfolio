@@ -1,5 +1,6 @@
 .terminal {
   max-height: calc(100vh - 160px);
+  width: 600px;
   margin-bottom: 20px;
   overflow-y: scroll;
 }
@@ -14,4 +15,16 @@
 
 .terminal {
   -ms-overflow-style: none;
+}
+
+.textWrapper {
+  max-width: 600px;
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.textWrapper:first-child {
+  margin-right: 16px;
 }

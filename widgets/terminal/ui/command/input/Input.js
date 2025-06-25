@@ -1,17 +1,10 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useInput } from "../../../model/use-input";
 import styles from "./Input.module.css";
 
 export default function Input({ command, onSubmit }) {
-  const [_command, setCommand] = useState(command ? command : "");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setCommand("");
-    return onSubmit(_command);
-  };
-
+  const { _command, setCommand, handleSubmit } = useInput(command, onSubmit);
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <label htmlFor="command">
@@ -23,7 +16,7 @@ export default function Input({ command, onSubmit }) {
       <input
         type="text"
         className={styles.input}
-        value={_command}
+        value={command ? command : _command}
         onChange={(e) => setCommand(e.target.value)}
         disabled={command ? true : false}
         ref={(input) => input && !command && input.focus()}

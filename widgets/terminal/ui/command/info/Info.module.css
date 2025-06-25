@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.specs {
+  display: flex;
+  flex-direction: column;
+}
+
+.art {
+  padding: 1rem;
+  font-family: monospace;
+  white-space: pre-wrap;
+}

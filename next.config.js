@@ -21,4 +21,12 @@ module.exports = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "sdmntprpolandcentral.oaiusercontent.com",
+      },
+    ],
+  },
 };
