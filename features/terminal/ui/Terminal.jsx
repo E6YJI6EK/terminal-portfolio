@@ -1,12 +1,23 @@
 "use client";
 
+import Link from "next/link";
 import { useTerminal, TerminalProvider } from "../model/terminal.context";
 import { Command } from "./command/Command";
 import styles from "./Terminal.module.css";
+import { useKeyboardShortcut } from "../../../shared/lib/use-keyboard-shortcut";
 
 const _Terminal = () => {
   const { dispatch, state } = useTerminal();
-
+  useKeyboardShortcut({
+    key: "ArrowUp",
+    handler: (e) => {
+      e.preventDefault();
+      dispatch({
+        type: "changeInputCommand",
+        payload: state.history[state.history.length - 1],
+      });
+    },
+  });
   return (
     <>
       <div className={styles.textWrapper}>
@@ -24,9 +35,9 @@ const _Terminal = () => {
         </p>
         <p>
           Visit{" "}
-          <a href="https://n.kavin.me" target="_blank" rel="noreferrer">
+          <Link href="" target="_blank" rel="noreferrer">
             Normal website
-          </a>
+          </Link>
         </p>
       </div>
       <div className={styles.terminal}>
@@ -36,9 +47,10 @@ const _Terminal = () => {
         />
         {!state.isLoading && (
           <Command
-            onSubmit={(command) =>
-              dispatch({ type: "execCommand", payload: command })
-            }
+            onSubmit={(command) => {
+              dispatch({ type: "updateHistory", payload: command });
+              dispatch({ type: "execCommand", payload: command });
+            }}
           />
         )}
       </div>
@@ -47,6 +59,7 @@ const _Terminal = () => {
 };
 
 export const Terminal = ({ showNotification }) => {
+  
   return (
     <TerminalProvider showNotification={showNotification}>
       <_Terminal />

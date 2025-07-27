@@ -1,7 +1,7 @@
 "use client";
 
-import { useNotification } from "../widgets/notifications";
-import { Terminal } from "../widgets/terminal";
+import { useNotification } from "../../../features/notifications";
+import { Terminal } from "../../../features/terminal";
 import styles from "./Home.module.css";
 
 export const Home = () => {

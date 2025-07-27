@@ -1,5 +1,5 @@
-import { ActionNotificationProvider } from "../widgets/notifications";
-import { Home } from "./Home";
+import { ActionNotificationProvider } from "../features/notifications";
+import { Home } from "../widgets/home";
 
 export default function HomePage() {
   return (

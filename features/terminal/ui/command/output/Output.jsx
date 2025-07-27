@@ -6,7 +6,13 @@ export const Output = ({ output }) => {
     case "menu":
       return <Menu items={output.items} />;
     case "info":
-      return <Info specs={output.specs} imageUrl={output.imageUrl} />;
+      return (
+        <Info
+          specs={output.specs}
+          imageUrl={output?.imageUrl}
+          asciiArt={output?.asciiArt}
+        />
+      );
     case "service":
       return output.texts.map((text) => <p key={text}>{text}</p>);
     default:
