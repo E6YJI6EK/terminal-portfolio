@@ -25,6 +25,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  animation: glassFadeIn 1.2s ease forwards;
+}
+
+@keyframes glassFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 .title {
@@ -35,4 +50,18 @@
   max-width: 600px;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: contentFadeIn 1.2s 0.3s ease forwards;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
